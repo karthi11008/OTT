@@ -1,0 +1,211 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="font.css">
+    <title>OTP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" type="image/x.icon" href="logo.png">
+    <style>
+        body
+        {
+            background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://assets.nflxext.com/ffe/siteui/vlv3/77d35039-751f-4c3e-9c8d-1240c1ca6188/cf244808-d722-428f-80a9-052acdf158ec/IN-en-20231106-popsignuptwoweeks-perspective_alpha_website_small.jpg');
+        }
+        @media screen and (max-width: 819px) {
+            /* Adjust styles for screens with a maximum width of 740px */
+            .form-wrapper{
+                left: 20%;
+            }
+    }
+
+        @media screen and (max-width: 500px) {
+            /* Adjust styles for screens with a maximum width of 740px */
+            .form-wrapper {
+                padding: 20px;
+                left: 0%;
+                width: 100%;
+            }
+            .submit {
+	            margin-left: -22px;
+            }
+            body{
+                background-color: rgba(0,0,0,0.7);
+            }
+            .otp{
+                margin-left: 38px;
+            }
+            main{
+                margin-left: 90px;
+                margin: 50px 90px;
+                max-width: 300px;
+            }
+            /* .form-wrapper h1 {
+                font-size: 1.5rem;
+            }
+            
+            .list-otp {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .list-otp input {
+                width: 30px;
+                margin: 5px;
+            } */
+            
+           
+        }
+    </style>
+</head>
+
+<body>
+    <img src="logo.png" height="100px" width="100px" class="logo">
+    <div class="form-wrapper">
+        <main>
+        <form action="./login page.html" target="_self" method="post" onsubmit="return generateOTP()"
+        onsubmit="return ValidForm()" 
+        >
+            <h1>Reset your password</h1>
+            <hr>
+            <label><font>Enter your email or phone number:</font></label><br>
+            <input type="text" size="20" class="mail-num" placeholder="Email or Phone" onkeyup="ValidEmailPhone()" id="mail-numm" required> <br>
+            <span id="errormsg"></i></span><br><br>
+            <input type="submit" value="Get OTP" href="#" class="get-otp"><br><br>
+            <span id="otp-num" style="margin: 10px;">- - - -</span>
+        </form>
+        <form action="newpassword.html" target="_self" onsubmit="return VerifyOTP() " method="post">
+            <label><font>Enter the OTP:</font>
+            
+            </label><br>
+            <div class="list-otp">
+                <input type="text" size="20" required pattern="[0-9]*" maxlength="4" class="otp" onkeyup="validFormVerification()" >
+                <span id="otp-error"><i class="fa-solid fa-circle-exclamation"></i></span>
+            </div>
+            <div class="timer">
+                Didn't receive OTP? <button type="button" id="resend" class="reset">Click to Resend</button>
+               
+                <input type="submit" value="Submit" class="get-otp" id="sum">
+            </div>
+        </form>
+    </main>
+    </div>
+
+
+
+
+
+            <script>
+
+                //javascript to verify email and phone number
+               
+
+//pt to generate OTP
+            function generateOTP() {
+            alert("OTP generated successfully it will be valid for 60 seconds");
+            var digits = '0123456789';
+            let OTP = '';
+            for (let i = 0; i < 4; i++) {
+                OTP += digits[Math.floor(Math.random() * 10)];
+            }
+            document.getElementById("otp-num").innerHTML = OTP;
+            setTimeout(function () {
+                document.getElementById("otp-num").innerHTML = 'Expeired';
+            }, 60000); // 60 seconds
+            return false; // Prevent form submission
+        }
+
+ var error = document.getElementById("errormsg");
+            function ValidEmailPhone() {
+                var email = document.getElementById("mail-numm").value;
+            
+                if(email.length == ""){
+                    error.innerHTML = "REQUIRED";
+                    return false;
+                }
+                
+                else{
+                    error.innerHTML= '<i class="fa-regular fa-circle-check" style="color: #00ff00;"></i>';
+                    return true;
+                }
+
+            }
+
+
+            function ValidForm(){
+                if(!ValidEmailPhone()){
+                    return false;
+                }
+                else{
+                    return true;
+                }
+}
+        //otp check
+        var otpError = document.getElementById("otp-error");
+            function validFormVerification() {
+            var otp = document.getElementsByClassName("otp")[0].value; // Use getElementById instead of getElementsByClassName
+            var OTP = document.getElementById("otp-num").innerHTML;
+            
+
+            if (otp.length == "") {
+                otpError.innerHTML = '<i class="fa-regular fa-circle-xmark" style="color: #ff0000;"></i>';
+                return false;
+            }
+
+            if (otp != OTP) {
+                otpError.innerHTML = '<i class="fa-regular fa-circle-xmark" style="color: #ff0000;"></i>';
+                return false;
+            }
+
+            if (otp.length < 4) {
+                otpError.innerHTML = '<i class="fa-regular fa-circle-xmark" style="color: #ff0000;"></i>';
+                return false;
+            }
+
+            otpError.innerHTML = '<i class="fa-regular fa-circle-check" style="color: #00ff00;"></i>';
+
+            return true;
+        }
+
+function VerifyOTP() {
+    if (!validFormVerification()) {
+        return false;
+    }
+    return true;
+}
+        
+ 
+            </script>
+
+           
+
+    <script>
+        // JavaScript code for timer and resend functionality
+        function resend() {
+            function startTimer(duration, display) {
+                var timer = duration, minutes, seconds;
+                setInterval(function () {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + ":" + seconds;
+
+                    if (--timer < 0) {
+                        timer = duration;
+                    }
+                }, 1000);
+            }
+
+            window.onload = function () {
+                var twoMinutes = 2 * 60,
+                    display = document.querySelector('.timer');
+                startTimer(twoMinutes, display);
+            };
+        }
+    </script>
+</body>
+
+</html>
+

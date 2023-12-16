@@ -1,0 +1,127 @@
+<html>
+<head>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        font {
+            font-family: britannic bold;
+            font-size: 40px;
+            color: whitesmoke;
+        }
+
+        .navbar {
+            height: 100px;
+            width: 100%;
+            display: flex;
+            padding-top: 10px;
+            justify-content: space-around;
+        }
+        button {
+            background-color: red;
+            width: 150px;
+            height: 40px;
+            border: none;
+            font-size: 18px;
+            font-weight: 610;
+            margin-top: 20px;
+            color: white;
+        }
+        .text{
+            margin-top: 180px;
+            text-align: center;
+            align-items: center;
+        }
+        .main{
+            background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://assets.nflxext.com/ffe/siteui/vlv3/77d35039-751f-4c3e-9c8d-1240c1ca6188/cf244808-d722-428f-80a9-052acdf158ec/IN-en-20231106-popsignuptwoweeks-perspective_alpha_website_small.jpg');
+            background-repeat:no-repeat;
+            background-size:cover;
+            opacity: 2;
+            height: 100%;
+        }
+        
+        .mail{
+            width: 300px;
+            height: 60px;
+            padding: 8px;
+            color: white;
+            border: none;
+            font-size: 15px;
+            border-radius: 5px;
+            background: rgb(22, 22, 22);
+        }
+        .start{
+            height: 60px;
+
+        }
+        .logo{
+            width: 70px;
+            height: 70px;
+        }
+        @media screen and (max-width: 768px) {
+    .navbar {
+        height: 60px;
+    }
+
+    button {
+        width: 100px;
+        height: 35px;
+        font-size: .8rem;
+        margin-top: 5px;
+    }
+
+    .text {
+        margin-top: 120px;
+    }
+    .text b{
+        font-size: 2.4rem;
+    }
+
+    .mail {
+        width: 200px;
+        height: 40px;
+        margin-right: 6px;
+    }
+
+    .start {
+        height: 35px;
+    }
+
+    .logo {
+        width: 100px;
+        height: 50px;
+    }}
+    </style>
+    <title>Frame1</title>
+</head>
+
+<body>
+<div class="main">
+    <div class="navbar">
+            <a href="#"><img src="logo.png" alt="" class="logo" style="width:150px; height:100px"></a>
+            <div>
+                <a href="./signin.html"><button>Sign in</button></a>
+            </div>
+        
+    </div>
+
+
+    <!-- <br><br><br><br><br><br><br><br><br><br><br><br> -->
+    <div class="text">
+        <font><b>Welcome to cinema world</b></font><br>
+        <font><b>Watch the latest movies, TV shows, award-winning and songs.</b></font><br><br>
+        <form action="./signin.html" method="get" target="_blank">
+            <input type="email" placeholder="Enter Email" class="mail">
+            <button class="start">Get started ></button>
+        </form>
+    </div>
+</div>
+    </body>
+</body>
+
+</html>

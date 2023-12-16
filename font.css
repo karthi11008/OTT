@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://assets.nflxext.com/ffe/siteui/vlv3/77d35039-751f-4c3e-9c8d-1240c1ca6188/cf244808-d722-428f-80a9-052acdf158ec/IN-en-20231106-popsignuptwoweeks-perspective_alpha_website_small.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 2;
+    z-index: -1;
+    height: 100vh;
+    color: white;
+}
+.form-wrapper{
+    position: absolute;
+    width: 480px;
+    left: 35%;
+    top: 10%;
+    padding: 50px;
+    /* height: 68%; */
+    margin: auto;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, .75);
+}
+form{
+    display: block;
+}
+hr{
+    width: 100px;
+    margin: 10px;
+    color: rgb(255, 55, 0);
+    border: 3px solid;
+    border-radius: 10px;
+    margin-left: 0px;
+}
+.mail-num{
+    width: 300px;
+    height: 50px;
+    padding: 5px;
+    margin: 10px 0px;
+}
+.get-otp{
+    width: 300px;
+    height: 50px;
+    border: 1px solid black;
+    font-size: 15px;
+    
+}
+.get-otp:hover{
+    background-color: rgb(236, 32, 14);
+    color: white;
+    border: 1px solid red;
+    transition: .3s all ease-out; 
+}
+.list-otp{
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    margin-left: 15px;
+}
+#otp-error{
+    margin-top: 15px;
+    margin-left: 5px;
+}
+.otp{
+    font-size: 25px;
+    margin-left: -70px;
+    text-align: center;
+    width: 300px;
+    height: 50px;
+    letter-spacing: 15px;
+    border: 2px solid black;
+    padding-left: 10px;
+}
+.timer{
+    font-size: 15px;
+    margin: 20px;
+}
+main{
+    max-width: 400px;
+    overflow: hidden;
+}
+.reset{
+    height: 20px;
+    padding: 2px;
+    border: 2px solid whitesmoke; 
+    margin: 10px 0px;
+}
+#sum{
+    margin-left: -20px;
+}
+input:focus{
+    outline: none;
+    border: 1px solid red;
+}

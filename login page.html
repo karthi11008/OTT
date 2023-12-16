@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Login Page | CodingNepal</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <nav>
+        <a href="#"><img class="logo" src="./Cini-world-19-11-2023.png" alt="logo"></a>
+    </nav>
+    <div class="form-wrapper">
+        <h2>LOGIN</h2>
+        <form action="./subscribe1.html" onclick="return ValidForm()">
+            <div class="form-control">
+                <input type="text" onkeyup="ValidEmailPhone()" id="email">
+                <label>Email or phone number <span id="error-e"></span></label>
+            </div>
+            <div class="form-control">
+                <input type="password" onkeyup="ValidPassword()" id="pass">
+                <label>Password <span id="error-p"></span></label>
+                <a class="otp" href="otp.html" target="_blank" >Forgot password</a><br><br>
+            </div>
+
+            <a href="./subscribe1.html"><input type="submit" onclick="ValidForm()" class="button" value="Login"></a>
+            <div class="form-help"> 
+                <!-- <div class="remember-me">
+                    <input type="checkbox" id="remember-me" thhmhjjmy                                                            required checked>
+                    <label for="remember-me" >Remember me</label>
+                </div> -->
+                <a href="#">Need help?</a>
+            </div>
+        </form>
+        <p>New to Netflix? <a href="./signin.html">Sign up now</a></p>
+        <small>
+            This page is protected by Google reCAPTCHA to ensure you're not a bot. 
+            <a href="#">Learn more.</a>
+        </small>
+    </div>
+
+    <script>
+        var emailError = document.getElementById('error-e');
+        var passwordError = document.getElementById('error-p');
+
+        function ValidEmailPhone(){
+            
+            var email = document.getElementById("email").value;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var phoneRegex = /^\d{10}$/;
+
+            if (email.length === 0) {
+            emailError.innerHTML = '<p style="color: red;background-color: wheat;float: right">'+'&nbsp '+' Mail or phone is required'+'&nbsp'+'</p>';
+            return false;
+            }
+            if (emailRegex.test(email))
+            {
+            emailError.innerHTML = '<p style="color: green;background-color: wheat;float: right">'+'&nbsp '+' Valid Email'+'&nbsp'+'</p>';
+            return false;
+            }
+            else if (phoneRegex.test(email)){
+                emailError.innerHTML = '<p style="color: green;background-color: wheat;float: right">'+'&nbsp '+' Valid Phone Number'+'&nbsp'+'</p>';
+                return false;
+            }
+            else{
+                emailError.innerHTML = '';
+                return true;
+            }
+        }
+
+        function ValidPassword(){
+            
+            var password = document.getElementById("pass").value;
+
+            if(password == ""){
+                
+                passwordError.innerHTML = '<p style="color: red;background-color: wheat;float: right">'+'&nbsp '+' Password is required'+'&nbsp'+'</p>';
+                return false;
+            }
+            if(password.length < 8){
+                
+                passwordError.innerHTML = '<p style="color: red;background-color: wheat;float: right">'+'&nbsp '+' Password must be at least 8 characters'+'&nbsp'+'</p>';
+                return false;
+            }
+            else{
+                
+                passwordError.innerHTML = '';
+                return true;
+            }
+        }
+
+        function ValidForm(){
+            if(!ValidEmailPhone() || !ValidPassword()){
+                return false;
+            }
+            else{
+                
+            }
+        }
+    </script>
+</body>
+</html>

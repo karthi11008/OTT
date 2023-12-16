@@ -1,0 +1,35 @@
+@media only screen and (max-width: 768px) {
+    .logo-image{
+        width: 30px;
+        height: auto;
+    }
+    .logo {
+       font-size: 1rem;
+    }
+    #more{
+        display: block;
+    }
+    ul{
+        display: none;
+    }
+}
+@media screen and (max-width: 1279px) {
+    .logo-image{
+        height: auto;
+    }
+    .logo {
+       font-size: 1rem;
+    }
+    #more{
+        display: block;
+    }
+    
+    ul a{
+        font-size: .8rem;
+    }
+    .form-control{
+        width: 50%;
+        height: 30px;
+    }
+    
+}
